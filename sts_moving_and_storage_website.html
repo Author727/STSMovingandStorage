@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STS Moving and Storage | Professional Logistics & Transport</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2f9f8',
+                            100: '#dbeee9',
+                            200: '#b9ded6',
+                            300: '#8cc7bc',
+                            400: '#5ca99d',
+                            500: '#3B9B93', // Primary brand color from logo
+                            600: '#2d7c76',
+                            700: '#276460',
+                            800: '#23514e',
+                            900: '#204442',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom image hover overlay sliding from left */
+        .service-card .img-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card .overlay {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(59, 155, 147, 0.75);
+            transition: left 0.4s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-card:hover .overlay {
+            left: 0;
+        }
+
+        /* FAQ details styling */
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Scroll reveal animation styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-btn {
+            animation: pulse-ring 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- FLOATING WHATSAPP BUTTON (Bottom Right) -->
+    <a href="https://wa.me/18502577059?text=Hello%20STS%20Moving%20and%20Storage,%20I%20would%20like%20to%20get%20a%20quote!" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-btn fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition duration-300"
+       title="Chat with us on WhatsApp">
+        <i class="fab font-bold fa-whatsapp"></i>
+    </a>
+
+    <!-- HEADER SECTION -->
+    <header class="w-full sticky top-0 z-40 bg-white shadow-md">
+        <!-- Header Layer 1: Top Bar -->
+        <div class="bg-gray-900 text-gray-300 text-xs sm:text-sm py-2 px-4 sm:px-8">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+                <!-- Left: Phone & Email -->
+                <div class="flex items-center space-x-4 sm:space-x-6 flex-wrap justify-center">
+                    <a href="tel:8502577059" class="hover:text-brand-400 transition flex items-center gap-2">
+                        <i class="fas fa-phone-alt text-brand-400"></i>
+                        <span>(850) 257-7059</span>
+                    </a>
+                    <a href="mailto:service@ship-sts.com" class="hover:text-brand-400 transition flex items-center gap-2">
+                        <i class="fas fa-envelope text-brand-400"></i>
+                        <span>service@ship-sts.com</span>
+                    </a>
+                </div>
+                <!-- Right: Social Links -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold hidden md:inline">Connect With Us:</span>
+                    <a href="https://www.facebook.com/people/Specialized-Transport-Systems/61574602775991/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition flex items-center gap-1.5" title="Facebook Page">
+                        <i class="fab fa-facebook-f text-base text-brand-400"></i>
+                        <span class="hidden sm:inline">Facebook</span>
+                    </a>
+                    <a href="https://www.google.com/maps/place/STS+Moving+and+Storage/@30.2380317,-85.9040782,576m/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition flex items-center gap-1.5" title="Google Maps & Review">
+                        <i class="fas fa-map-marker-alt text-base text-brand-400"></i>
+                        <span class="hidden sm:inline">Location / Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Layer 2: Main Nav & Branding -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
+            <!-- Brand Logo & Name -->
+            <a href="#" onclick="switchPage('home'); return false;" class="flex items-center gap-3 group">
+                <!-- SVG / Image Logo fallback representation of STS logo provided -->
+                <div class="w-12 h-12 rounded-full border-2 border-brand-500 p-0.5 flex items-center justify-center bg-white shadow-sm group-hover:scale-105 transition">
+                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                        <circle cx="100" cy="100" r="95" fill="none" stroke="#3B9B93" stroke-width="4"/>
+                        <text x="100" y="115" font-family="sans-serif" font-size="80" font-weight="bold" fill="#3B9B93" text-anchor="middle">STS</text>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">STS Moving and Storage</span>
+                    <span class="block text-xs font-medium text-brand-600">Specialized Transport Systems</span>
+                </div>
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-700 hover:text-brand-500 focus:outline-none text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav id="nav-menu" class="hidden lg:flex items-center space-x-1 sm:space-x-2 font-semibold text-gray-700">
+                <button onclick="switchPage('home')" id="nav-home" class="nav-link active-nav px-4 py-2 rounded-md hover:text-brand-600 hover:bg-brand-50 transition">Home</button>
+                <button onclick="switchPage('about')" id="nav-about" class="nav-link px-4 py-2 rounded-md hover:text-brand-600 hover:bg-brand-50 transition">About Us</button>
+                <button onclick="switchPage('services')" id="nav-services" class="nav-link px-4 py-2 rounded-md hover:text-brand-600 hover:bg-brand-50 transition">Services</button>
+                <button onclick="switchPage('contact')" id="nav-contact" class="nav-link px-4 py-2 rounded-md hover:text-brand-600 hover:bg-brand-50 transition">Contact Us</button>
+                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" rel="noopener noreferrer" class="ml-4 bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition flex items-center gap-2">
+                    <i class="fas fa-quote-right text-xs"></i>
+                    <span>Get Quote</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-gray-200 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchPage('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 rounded-md text-gray-700 hover:bg-brand-50 hover:text-brand-500 font-medium">Home</button>
+            <button onclick="switchPage('about'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 rounded-md text-gray-700 hover:bg-brand-50 hover:text-brand-500 font-medium">About Us</button>
+            <button onclick="switchPage('services'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 rounded-md text-gray-700 hover:bg-brand-50 hover:text-brand-500 font-medium">Services</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 rounded-md text-gray-700 hover:bg-brand-50 hover:text-brand-500 font-medium">Contact Us</button>
+            <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block text-center bg-brand-500 text-white px-4 py-2.5 rounded-md font-semibold mt-2">Get Free Quote</a>
+        </div>
+    </header>
+
+    <!-- PAGE CONTENT CONTAINER -->
+    <main>
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <div id="page-home" class="page-view">
+            
+            <!-- 1st Section: Hero Banner Slider -->
+            <section class="relative w-full h-[550px] sm:h-[650px] overflow-hidden bg-gray-900">
+                <!-- Banner Slides Container -->
+                <div id="banner-slider" class="w-full h-full relative">
+                    
+                    <!-- Slide 1: White Glove Delivery -->
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                        <img src="https://plus.unsplash.com/premium_photo-1664297849663-e25a3ca42dab?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="White Glove Delivery Service" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div> <!-- 0.5 opacity overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl text-white space-y-4">
+                                <span class="bg-brand-500 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block">Premium Logistics</span>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">White Glove Delivery Service</h1>
+                                <p class="text-base sm:text-xl text-gray-200">Flawless assembly, precise placement, and full unpack services tailored to luxury furniture and valuables.</p>
+                                <div class="pt-4">
+                                    <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-3.5 rounded-lg shadow-xl hover:shadow-2xl transition inline-block">Request White Glove Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Threshold Delivery -->
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://plus.unsplash.com/premium_photo-1726776092398-98a1620d877e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Threshold Delivery" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl text-white space-y-4">
+                                <span class="bg-brand-500 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block">Safe & Timely</span>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Threshold Delivery Solutions</h1>
+                                <p class="text-base sm:text-xl text-gray-200">Prompt and secure drop-offs straight past your front door, garage, or secure entryway.</p>
+                                <div class="pt-4">
+                                    <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-3.5 rounded-lg shadow-xl transition inline-block">Book Threshold Service</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Residential Moving -->
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://images.unsplash.com/photo-1714647211902-bb711d643a17?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Residential Moving" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl text-white space-y-4">
+                                <span class="bg-brand-500 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block">Stress-Free Moving</span>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Residential Moving Specialists</h1>
+                                <p class="text-base sm:text-xl text-gray-200">Complete home relocations managed with care, efficiency, and customized storage solutions.</p>
+                                <div class="pt-4">
+                                    <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-3.5 rounded-lg shadow-xl transition inline-block">Plan Your Move Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Designers -->
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://plus.unsplash.com/premium_photo-1723701918806-bf9b3b37a02a?q=80&w=848&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Designers Service" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl text-white space-y-4">
+                                <span class="bg-brand-500 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block">Interior Logistics</span>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Interior Designer Services</h1>
+                                <p class="text-base sm:text-xl text-gray-200">Dedicated receiving, consolidation, inspection, and staging for interior design projects.</p>
+                                <div class="pt-4">
+                                    <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-3.5 rounded-lg shadow-xl transition inline-block">Partner With Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Arrows -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-brand-500 text-white w-12 h-12 rounded-full flex items-center justify-center transition border border-white/20">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-brand-500 text-white w-12 h-12 rounded-full flex items-center justify-center transition border border-white/20">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+
+                <!-- Slider 4 Dots -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+                    <button onclick="goToSlide(0)" class="dot w-3.5 h-3.5 rounded-full bg-white transition"></button>
+                    <button onclick="goToSlide(1)" class="dot w-3.5 h-3.5 rounded-full bg-white/50 transition"></button>
+                    <button onclick="goToSlide(2)" class="dot w-3.5 h-3.5 rounded-full bg-white/50 transition"></button>
+                    <button onclick="goToSlide(3)" class="dot w-3.5 h-3.5 rounded-full bg-white/50 transition"></button>
+                </div>
+            </section>
+
+            <!-- 2nd Section: About Us Section -->
+            <section class="py-20 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- 50% Text Content -->
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-50 px-3 py-1 rounded-full">
+                            <i class="fas fa-building"></i>
+                            <span>About STS Moving and Storage</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">Your Trusted Partner in Specialized Moving, Freight & Storage</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Welcome to STS Moving and Storage (Specialized Transport Systems), Panama City Beach’s premier provider for residential moving, specialized freight handling, and white glove delivery services. We take pride in handling your valuable goods with supreme precision and practical, high-quality care.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Whether you need multi-room home relocation, threshold delivery, furniture repair, or dedicated interior designer receiving and staging, our team delivers complete peace of mind through reliable scheduling and professional execution.
+                        </p>
+                        <div class="pt-2">
+                            <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-brand-500 hover:bg-brand-600 text-white font-bold px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition">
+                                <span>Learn More On Google My Business</span>
+                                <i class="fas fa-external-link-alt text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 50% Image Section -->
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://plus.unsplash.com/premium_photo-1661409100444-5ab608d6e693?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="STS Professional Moving Team" class="w-full h-[400px] object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-brand-500 text-white p-6 rounded-xl shadow-xl hidden sm:block">
+                            <p class="text-3xl font-extrabold">100%</p>
+                            <p class="text-sm font-medium">Customer Satisfaction Focus</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3rd Section: Services Grid (8 Services - 2 Rows x 4 Columns) -->
+            <section class="py-20 bg-gray-100 px-4 sm:px-8 reveal">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                        <span class="text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-100/60 px-4 py-1.5 rounded-full">Our Core Offerings</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Tailored Transport & Moving Services</h2>
+                        <p class="text-gray-600">From delicate white-glove installations to large residential relocations, we provide end-to-end logistics with absolute attention to detail.</p>
+                    </div>
+
+                    <!-- 8 Services Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- Service 1: Furniture Repair Service -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" alt="Furniture Repair Service" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Expert Repair & Touch-Up</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Furniture Repair Service</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Professional repair, touch-up, and restoration solutions for wooden, upholstered, and modern furniture pieces damaged during transit or daily use.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: Order Management -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" alt="Order Management" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Seamless Inventory Control</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Order Management</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Comprehensive receiving, tracking, cataloging, and inventory management for freight, designer shipments, and commercial goods with real-time updates.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: White Glove Delivery Service -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://plus.unsplash.com/premium_photo-1683147846965-969a99b70d9e?q=80&w=870" alt="White Glove Delivery Service" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Unpack, Assemble & Place</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">White Glove Delivery</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Elite delivery service including full unpacking, expert assembly, room placement, and complete debris removal for pristine luxury homes and businesses.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: Threshold Delivery -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://plus.unsplash.com/premium_photo-1661320827683-65d973288adc?q=80&w=870" alt="Threshold Delivery" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Secure Doorstep Logistics</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Threshold Delivery</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Convenient and direct drop-off past the front threshold or into secure garage spaces, protecting packages from weather and unauthorized access.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 5: Residential Moving -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://plus.unsplash.com/premium_photo-1661427176472-293e19a3a81a?q=80&w=870" alt="Residential Moving" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Complete Home Moving</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Residential Moving</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Full-service local home moving solutions tailored for apartments, condos, and large family homes with careful packing and efficient transport.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: Designers -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://plus.unsplash.com/premium_photo-1723590014121-2d5b1486d080?q=80&w=871" alt="Designers Service" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Dedicated Designer Staging</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Designers Services</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Specialized warehouse holding, receiving, quality inspection, and white-glove installation tailored specifically for interior designers and architects.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 7: Commercial Warehousing -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" alt="Commercial Storage & Warehousing" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Climate-Controlled Vaults</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Commercial Storage</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Secure, climate-controlled warehousing facilities offering flexible short-term and long-term storage for business inventory and equipment.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 8: Specialized Freight Logistics -->
+                        <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between border border-gray-100 hover:shadow-2xl transition duration-300">
+                            <div>
+                                <div class="img-container h-48 w-full bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop" alt="Specialized Logistics" class="w-full h-full object-cover">
+                                    <div class="overlay">
+                                        <span class="text-white font-bold text-lg px-4 text-center">Dedicated Freight Delivery</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Specialized Transport</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Custom freight solutions for fragile, high-value, or oversized cargo requiring custom crating, liftgate transport, and scheduled dispatch.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition shadow">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4th Section: Why Choose Us Section -->
+            <section class="py-20 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- 50% Tiles & Features -->
+                    <div class="space-y-6">
+                        <span class="text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-50 px-3 py-1 rounded-full">Why Choose Us</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Why STS Moving and Storage Stand Out</h2>
+                        <p class="text-gray-600">We combine years of logistics excellence with personalized local service to ensure your move is smooth, secure, and stress-free.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm hover:border-brand-500 transition">
+                                <i class="fas fa-shield-alt text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="font-bold text-gray-900">Licensed & Insured</h4>
+                                <p class="text-xs text-gray-500 mt-1">Full coverage protection for your precious items during transport.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm hover:border-brand-500 transition">
+                                <i class="fas fa-clock text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="font-bold text-gray-900">Punctual Schedules</h4>
+                                <p class="text-xs text-gray-500 mt-1">Dependable drop-offs and relocations timed around your timetable.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm hover:border-brand-500 transition">
+                                <i class="fas fa-hands-helping text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="font-bold text-gray-900">White Glove Care</h4>
+                                <p class="text-xs text-gray-500 mt-1">Meticulous unpacking, assembly, and room setup by trained pros.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm hover:border-brand-500 transition">
+                                <i class="fas fa-warehouse text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="font-bold text-gray-900">Secure Storage</h4>
+                                <p class="text-xs text-gray-500 mt-1">Climate-controlled facilities for temporary or long-term warehousing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 50% Image Section -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1776885008664-68b2988373e6?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Why Choose STS Moving" class="rounded-2xl shadow-2xl w-full h-[450px] object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5th Section: Customer Reviews Section (6 Reviews - Slide 2 by 2) -->
+            <section class="py-20 bg-brand-900 text-white px-4 sm:px-8 reveal">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                        <span class="text-brand-300 font-bold uppercase tracking-wider text-sm bg-brand-800 px-4 py-1.5 rounded-full">Testimonials</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold">What Our Clients Say About Us</h2>
+                        <p class="text-brand-200">Real feedback from satisfied home buyers, interior designers, and commercial partners across Florida.</p>
+                    </div>
+
+                    <!-- Testimonial Slider Outer -->
+                    <div class="relative max-w-5xl mx-auto">
+                        <div id="review-slider" class="overflow-hidden">
+                            <!-- Review Slide Container -->
+                            <div id="review-track" class="flex transition-transform duration-500 ease-in-out">
+                                
+                                <!-- Slide 1 (Review 1 & Review 2) -->
+                                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">Michael R. (Panama City Beach, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"STS Moving handled our entire home relocation flawlessly. Their White Glove service saved us so much time and stress. The crew was on time, courteous, and took extraordinary care of our furniture!"</p>
+                                    </div>
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">Sarah L. (Destin, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"As an interior designer, finding a reliable receiving and delivery partner is critical. STS Moving is hands-down the best in the area! Professional order management and top-notch staging."</p>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2 (Review 3 & Review 4) -->
+                                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">David K. (30A, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"Their threshold delivery service was smooth and efficient. Delivered our heavy custom dining table right where we wanted it with zero hassle. Highly recommend STS Moving!"</p>
+                                    </div>
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">Emily Davis (Panama City, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"Fantastic customer service from start to finish. The team answered all my questions, provided an accurate quote, and arrived right on time on move day."</p>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3 (Review 5 & Review 6) -->
+                                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">Robert Johnson (Lynn Haven, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"We utilized their commercial storage and furniture repair services after a recent renovation. Their team is extremely professional and detail-oriented."</p>
+                                    </div>
+                                    <div class="bg-brand-800 p-8 rounded-2xl border border-brand-700 space-y-4 shadow-xl">
+                                        <div class="flex text-amber-400 text-lg space-x-1">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <h4 class="font-bold text-xl text-white">Jennifer M. (Santa Rosa Beach, FL)</h4>
+                                        <p class="text-gray-300 text-sm leading-relaxed">"The best transport experience I have ever had! Honest pricing, zero hidden fees, and absolute white-glove respect for my delicate artwork and antiques."</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Review Navigation Buttons -->
+                        <div class="flex justify-center space-x-4 mt-8">
+                            <button onclick="prevReview()" class="bg-brand-700 hover:bg-brand-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button onclick="nextReview()" class="bg-brand-700 hover:bg-brand-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6th Section: 6 FAQs Section (50% Accordion + 50% Image) -->
+            <section class="py-20 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-50 px-3 py-1 rounded-full">Got Questions?</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- 1st 50%: FAQs Accordion Schema Optimized -->
+                    <div class="space-y-4">
+                        
+                        <!-- FAQ 1 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>What is included in your White Glove Delivery service?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                Our White Glove Delivery service includes inside placement in the room of your choice, full unboxing, precision furniture assembly, and complete removal of all packing materials and debris.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 2 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>How do you support interior designers and architects?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                We offer dedicated receiving, itemized inventory inspection, climate-controlled warehousing, consolidation, and scheduled white-glove installation to complete design projects effortlessly.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 3 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>Are my items fully insured during moving and storage?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                Yes! STS Moving and Storage is fully licensed, bonded, and insured. We prioritize safety and offer comprehensive liability coverage options for your valuable property.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 4 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>What is the difference between Threshold and White Glove delivery?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                Threshold delivery safely places your items inside the front entryway or garage of your home. White glove delivery includes in-room placement, full setup, and packing cleanup.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 5 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>How can I schedule a moving estimate or get a free quote?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                You can fill out our online quote form below, call us directly at (850) 257-7059, or click our Google My Business quote link to request a tailored estimate within hours.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 6 -->
+                        <details class="group border border-gray-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:none bg-white shadow-sm hover:border-brand-500 transition">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 text-lg">
+                                <span>What hours are you available for client support?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-500 ml-2">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                                Our business hours are Monday through Friday from 7:00 AM to 5:30 PM. We also arrange weekend specialized deliveries by prior appointment.
+                            </p>
+                        </details>
+
+                    </div>
+
+                    <!-- 2nd 50%: FAQ Image -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1698917414969-feade59e3343?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="STS Customer Service FAQ" class="rounded-2xl shadow-2xl w-full h-[480px] object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7th Section: Contact Details & Google Map -->
+            <section class="py-20 bg-gray-50 px-4 sm:px-8 border-t border-gray-200 reveal">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- 1st 50%: Contact Details with Flat Icons -->
+                        <div class="space-y-8">
+                            <div>
+                                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-100/60 px-3 py-1 rounded-full">Contact Info</span>
+                                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Get In Touch With Us</h2>
+                                <p class="text-gray-600 mt-2">Have a question regarding your upcoming move or delivery? Reach out to us today!</p>
+                            </div>
+
+                            <div class="space-y-6">
+                                <!-- Phone -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Phone Number</h4>
+                                        <a href="tel:8502577059" class="text-brand-600 hover:underline text-base font-medium">(850) 257-7059</a>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Business Email</h4>
+                                        <a href="mailto:service@ship-sts.com" class="text-brand-600 hover:underline text-base font-medium">service@ship-sts.com</a>
+                                    </div>
+                                </div>
+
+                                <!-- Address -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Physical Address</h4>
+                                        <p class="text-gray-600 text-base">120 Griffin Blvd, Panama City Beach, FL 32413, United States</p>
+                                    </div>
+                                </div>
+
+                                <!-- Hours -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Business Hours</h4>
+                                        <p class="text-gray-600 text-base">Mon - Fri: 7:00 AM - 5:30 PM</p>
+                                        <p class="text-xs text-gray-400">Sat - Sun: By Appointment</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2nd 50%: Map iFrame -->
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-[450px]">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.271168051774!2d-85.9040782!3d30.2380317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xff0865d91570a69%3A0xf772c4ba44d2feb!2sSTS%20Moving%20and%20Storage!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                                class="w-full h-full border-0" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8th Section: Request A Quote Form & Counters -->
+            <section class="py-20 bg-white px-4 sm:px-8 border-t border-gray-100 reveal">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- 50% Form Integrated with Email -->
+                        <div class="bg-gray-50 p-8 sm:p-10 rounded-2xl shadow-xl border border-gray-200">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-extrabold text-gray-900">Request A Free Quote</h3>
+                                <p class="text-gray-600 text-sm mt-1">Send your moving or delivery specifications straight to service@ship-sts.com.</p>
+                            </div>
+                            <form action="mailto:service@ship-sts.com" method="post" enctype="text/plain" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-1">Your Full Name</label>
+                                    <input type="text" name="Name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
+                                        <input type="tel" name="Phone" required placeholder="(850) 000-0000" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+                                        <input type="email" name="Email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-1">Service Required</label>
+                                    <select name="Service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm bg-white">
+                                        <option value="White Glove Delivery">White Glove Delivery Service</option>
+                                        <option value="Threshold Delivery">Threshold Delivery</option>
+                                        <option value="Residential Moving">Residential Moving</option>
+                                        <option value="Designer Services">Designer Services</option>
+                                        <option value="Furniture Repair">Furniture Repair</option>
+                                        <option value="Commercial Warehousing">Commercial Warehousing</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-1">Project Details</label>
+                                    <textarea name="Details" rows="4" required placeholder="Describe items, pick-up address, and delivery location..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3.5 rounded-lg shadow-lg hover:shadow-xl transition">Submit Quote Request</button>
+                            </form>
+                        </div>
+
+                        <!-- 50% Animated Business Counters -->
+                        <div class="space-y-8">
+                            <div>
+                                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm bg-brand-50 px-3 py-1 rounded-full">Our Milestones</span>
+                                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Delivering Trust Across Florida</h2>
+                                <p class="text-gray-600 mt-2">Our numbers speak for our dedication, care, and precision in every job we undertake.</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-brand-50 p-6 rounded-2xl text-center border border-brand-100 shadow-sm">
+                                    <div class="text-brand-600 text-3xl mb-2"><i class="fas fa-truck-loading"></i></div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-gray-900 counter" data-target="2500">0</div>
+                                    <p class="text-xs sm:text-sm text-gray-600 font-semibold mt-1">Successful Deliveries</p>
+                                </div>
+                                <div class="bg-brand-50 p-6 rounded-2xl text-center border border-brand-100 shadow-sm">
+                                    <div class="text-brand-600 text-3xl mb-2"><i class="fas fa-smile"></i></div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-gray-900 counter" data-target="99">0</div>
+                                    <p class="text-xs sm:text-sm text-gray-600 font-semibold mt-1">% Client Satisfaction</p>
+                                </div>
+                                <div class="bg-brand-50 p-6 rounded-2xl text-center border border-brand-100 shadow-sm">
+                                    <div class="text-brand-600 text-3xl mb-2"><i class="fas fa-couch"></i></div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-gray-900 counter" data-target="450">0</div>
+                                    <p class="text-xs sm:text-sm text-gray-600 font-semibold mt-1">Designer Staging Jobs</p>
+                                </div>
+                                <div class="bg-brand-50 p-6 rounded-2xl text-center border border-brand-100 shadow-sm">
+                                    <div class="text-brand-600 text-3xl mb-2"><i class="fas fa-award"></i></div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-gray-900 counter" data-target="15">0</div>
+                                    <p class="text-xs sm:text-sm text-gray-600 font-semibold mt-1">Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= PAGE 2: ABOUT US PAGE ================= -->
+        <div id="page-about" class="page-view hidden">
+            <section class="bg-brand-900 text-white py-16 px-4 text-center">
+                <h1 class="text-4xl font-extrabold">About STS Moving and Storage</h1>
+                <p class="text-brand-200 mt-2 max-w-2xl mx-auto">Learn about our heritage, our commitment to quality, and why we are Florida's top choice for transport.</p>
+            </section>
+
+            <section class="py-16 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold text-gray-900">Dedicated Specialized Transport Systems</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            At STS Moving and Storage, we specialize in high-touch, meticulous moving and delivery services. From white glove interior setups to long-term warehouse inventory storage, our goal is to deliver flawless execution every single time.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Serving Panama City Beach, Destin, 32413, and surrounding regions, our trained team handles every article with white-glove respect, specialized packing materials, and bonded security.
+                        </p>
+                        <div>
+                            <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" class="bg-brand-500 text-white px-6 py-3 rounded-lg font-bold inline-block hover:bg-brand-600 transition">Visit Our Google Business Profile</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://plus.unsplash.com/premium_photo-1661409100444-5ab608d6e693?q=80&w=870" alt="About Us STS Moving" class="rounded-2xl shadow-xl w-full h-[400px] object-cover">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 3: SERVICES PAGE ================= -->
+        <div id="page-services" class="page-view hidden">
+            <section class="bg-brand-900 text-white py-16 px-4 text-center">
+                <h1 class="text-4xl font-extrabold">Our Full Range of Services</h1>
+                <p class="text-brand-200 mt-2 max-w-2xl mx-auto">Discover how STS Moving and Storage can simplify your residential or commercial logistics.</p>
+            </section>
+
+            <section class="py-16 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-hand-holding-heart text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">White Glove Delivery</h3>
+                        <p class="text-gray-600 text-sm">Full inside room placement, complete assembly, uncrating, and total packaging removal.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-door-open text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Threshold Delivery</h3>
+                        <p class="text-gray-600 text-sm">Safe and weather-protected delivery directly past your home front doorway or garage space.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-truck text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Residential Relocation</h3>
+                        <p class="text-gray-600 text-sm">Smooth, insured residential moving services for apartments, homes, and luxury estates.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-drafting-compass text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Interior Designer Staging</h3>
+                        <p class="text-gray-600 text-sm">Warehouse receiving, inventory check, holding, and designer project installation.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-hammer text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Furniture Repair</h3>
+                        <p class="text-gray-600 text-sm">Skilled wood touch-ups, structural fixes, and upholstery care for damaged furniture items.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i class="fas fa-boxes text-3xl text-brand-500 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Commercial Warehousing</h3>
+                        <p class="text-gray-600 text-sm">Secure climate-controlled facility storage for short or long-term business inventory.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 4: CONTACT US PAGE ================= -->
+        <div id="page-contact" class="page-view hidden">
+            <section class="bg-brand-900 text-white py-16 px-4 text-center">
+                <h1 class="text-4xl font-extrabold">Contact STS Moving and Storage</h1>
+                <p class="text-brand-200 mt-2 max-w-2xl mx-auto">We are ready to assist you with your moving and transport requirements.</p>
+            </section>
+
+            <section class="py-16 px-4 sm:px-8 max-w-7xl mx-auto reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Contact Information</h2>
+                        <p class="text-gray-600">Reach out by phone, email, or stop by our office location in Panama City Beach, FL.</p>
+                        <div class="space-y-4">
+                            <p class="flex items-center gap-3"><i class="fas fa-phone text-brand-500"></i> (850) 257-7059</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-envelope text-brand-500"></i> service@ship-sts.com</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-brand-500"></i> 120 Griffin Blvd, Panama City Beach, FL 32413</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-clock text-brand-500"></i> Mon - Fri: 7:00 AM - 5:30 PM</p>
+                        </div>
+                    </div>
+                    <div class="h-80 rounded-xl overflow-hidden shadow-lg">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.271168051774!2d-85.9040782!3d30.2380317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xff0865d91570a69%3A0xf772c4ba44d2feb!2sSTS%20Moving%20and%20Storage!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                            class="w-full h-full border-0">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER SECTION (3 Equal Columns + Copyright) -->
+    <footer class="bg-gray-900 text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <!-- 1st Column (33.33%): Logo & Business Overview -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full border-2 border-brand-500 p-0.5 flex items-center justify-center bg-white">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <circle cx="100" cy="100" r="95" fill="none" stroke="#3B9B93" stroke-width="4"/>
+                                <text x="100" y="115" font-family="sans-serif" font-size="80" font-weight="bold" fill="#3B9B93" text-anchor="middle">STS</text>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white">STS Moving & Storage</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        STS Moving and Storage is your trusted premier transport partner in Panama City Beach, FL, specializing in white glove delivery, interior designer logistics, residential moving, and commercial warehousing.
+                    </p>
+                    <div class="pt-2">
+                        <a href="https://g.page/r/CesvTaRLLHcPEBM/" target="_blank" rel="noopener noreferrer" class="bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-6 py-2.5 rounded-lg transition inline-block">Join Us On GMB</a>
+                    </div>
+                </div>
+
+                <!-- 2nd Column (33.33%): Navigation Menu -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white border-b border-gray-800 pb-2">Quick Navigation</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><button onclick="switchPage('home')" class="hover:text-brand-400 transition">Home</button></li>
+                        <li><button onclick="switchPage('about')" class="hover:text-brand-400 transition">About Us</button></li>
+                        <li><button onclick="switchPage('services')" class="hover:text-brand-400 transition">Services</button></li>
+                        <li><button onclick="switchPage('contact')" class="hover:text-brand-400 transition">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <!-- 3rd Column (33.33%): Contact Details -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white border-b border-gray-800 pb-2">Contact Information</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-400"></i>
+                            <a href="mailto:service@ship-sts.com" class="hover:underline">service@ship-sts.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-brand-400"></i>
+                            <a href="tel:8502577059" class="hover:underline">(850) 257-7059</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-400 mt-1"></i>
+                            <span>120 Griffin Blvd, Panama City Beach, FL 32413, US</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-clock text-brand-400"></i>
+                            <span>Mon - Fri: 7:00 AM - 5:30 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="bg-gray-950 py-4 text-center border-t border-gray-800 text-xs text-gray-500">
+            <p>© 2026 All Rights Reserved By The Ranking Geeks</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Page Switching Navigation Logic
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Update Active Nav styling
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('text-brand-600', 'bg-brand-50'));
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.add('text-brand-600', 'bg-brand-50');
+            }
+        }
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        function toggleMobileMenu() {
+            mobileDrawer.classList.toggle('hidden');
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Banner Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#banner-slider .slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        // Auto Advance Slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Reviews Carousel Logic
+        let currentReviewSlide = 0;
+        const reviewTrack = document.getElementById('review-track');
+        const totalReviewSlides = 3; // 6 reviews split into 3 slides
+
+        function updateReviewSlider() {
+            reviewTrack.style.transform = `translateX(-${currentReviewSlide * 100}%)`;
+        }
+
+        function nextReview() {
+            currentReviewSlide = (currentReviewSlide + 1) % totalReviewSlides;
+            updateReviewSlider();
+        }
+
+        function prevReview() {
+            currentReviewSlide = (currentReviewSlide - 1 + totalReviewSlides) % totalReviewSlides;
+            updateReviewSlider();
+        }
+
+        // Scroll Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Counter Animation Logic
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const speed = target / 50;
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const counterSection = document.querySelector('.counter')?.parentElement?.parentElement;
+        if (counterSection) counterObserver.observe(counterSection);
+    </script>
+</body>
+</html>
